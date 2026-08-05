@@ -19,15 +19,15 @@ property_type = st.selectbox('Property Type',['flat','house'])
 # sector
 sector = st.selectbox('sector', sorted(df['sector'].unique().tolist()))
 
-bedrooms = float(st.selectbox('Number of Bedroom', sorted(df['bedRoom'].unique().tolist())))
+bedrooms = float(st.selectbox('Number of Bedroom', sorted(df['bedRoom'].astype('Int64').unique().tolist())))
 
-bathroom = float(st.selectbox('Number of Bathroom', sorted(df['bathroom'].unique().tolist())))
+bathroom = float(st.selectbox('Number of Bathroom', sorted(df['bathroom'].astype('Int64').unique().tolist())))
 
 balcony = st.selectbox('Balconies', sorted(df['balcony'].unique().tolist()))
 
 property_age = st.selectbox('Property Age', sorted(df['agePossession'].unique().tolist()))
 
-built_up_area = float(st.number_input('Built up Area'))
+built_up_area = float(st.number_input('Built up Area in sq.ft.'))
 
 servant_room = float(st.selectbox('Servant Room', [0.0, 1.0]))
 
