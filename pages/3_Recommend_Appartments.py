@@ -24,7 +24,7 @@ def recommend_properties_with_scores(property_name, top_n=5):
     
     # Get the indices and scores of the top_n most similar properties
     top_indices = [i[0] for i in sorted_scores[1:top_n+1]]
-    top_scores = [i[1] for i in sorted_scores[1:top_n+1]]
+    top_scores = [str(int(round(i[1],2)*100)) + "%" for i in sorted_scores[1:top_n+1]]
     
     # Retrieve the names of the top properties using the indices
     top_properties = location_df.index[top_indices].tolist()
@@ -42,7 +42,7 @@ st.title('Select Location and Radius')
 
 selected_location = st.selectbox('Location', sorted(location_df.columns.to_list()))
 
-radius = st.number_input('Radius in KMs')
+radius = st.number_input('Radius in KMs',min_value=0,step=5)
 
 if st.button('Search'):
     result_ser = location_df[location_df[selected_location] < radius*1000][selected_location].sort_values()
