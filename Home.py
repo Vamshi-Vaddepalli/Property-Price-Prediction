@@ -38,4 +38,4 @@ st.markdown("""
 st.sidebar.success("Select a tool above to get started")
 
 st.markdown("---")
-st.caption("Built with Python, scikit-learn, and Streamlit | [GitHub](your-repo-link) | [LinkedIn](https://www.linkedin.com/in/vamshi-vaddepalli-b286501b6/)")
+st.caption("Built with Python, scikit-learn, and Streamlit | [GitHub](https://github.com/Vamshi-Vaddepalli/Property-Price-Prediction) | [LinkedIn](https://www.linkedin.com/in/vamshi-vaddepalli-b286501b6/)")
