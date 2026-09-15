@@ -26,7 +26,8 @@ fig = px.scatter_map(group_df, lat="latitude", lon="longitude", color="price_per
                             'built_up_area': True,
                             'latitude': False,
                             'longitude': False
-                        }                  
+                        },
+                    map_style="open-street-map"       
                   )
 
 st.plotly_chart(fig,width='stretch')
@@ -120,7 +121,8 @@ fig = px.scatter_map(group2_df, lat='latitude', lon='longitude', size='property_
         'latitude': False,
         'longitude': False
     },
-    color_continuous_scale='electric', zoom=10, width=1200, height=700, size_max=30
+    color_continuous_scale='electric', zoom=10, width=1200, height=700, size_max=30,
+    map_style="open-street-map"
 )
 
 st.plotly_chart(fig)
