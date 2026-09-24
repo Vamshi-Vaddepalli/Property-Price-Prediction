@@ -7,8 +7,21 @@ on:
   workflow_dispatch:  # lets you trigger it manually from the Actions tab too
 
 jobs:
-  ping:
+  wake:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping the app to keep it awake
-        run: curl -sSf https://property-price-prediction-gurgaon.streamlit.app/ || echo "Ping failed, app may be waking up"
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Visit app and wake it if asleep
+        run: python wake_app.py
