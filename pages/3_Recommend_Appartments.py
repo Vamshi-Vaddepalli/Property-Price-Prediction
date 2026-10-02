@@ -63,7 +63,7 @@ if st.button('Search'):
 
 st.header('Similar Apartment Recommendations')
 
-selected_appartment = st.selectbox('Select an appartment', sorted(location_df.index.to_list()))
+selected_appartment = st.selectbox('Select and get similar appartments', sorted(location_df.index.to_list()))
 
 if st.button('Recommend'):
     recommend_df = recommend_properties_with_scores(selected_appartment)
