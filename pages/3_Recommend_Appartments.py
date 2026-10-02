@@ -5,6 +5,8 @@ import numpy as np
 
 st.set_page_config(page_title="Reccommend Appartments")
 
+st.title('Apartment Explorer')
+
 location_df = pickle.load(open('datasets/location_distance.pkl', 'rb'))
 
 cosine_sim1 = pickle.load(open('datasets/cosine_sim1.pkl', 'rb'))
@@ -38,20 +40,29 @@ def recommend_properties_with_scores(property_name, top_n=5):
     return recommendations_df
 
 
-st.title('Select Location and Radius')
+# st.title('Select Location/Landmark to find Apartments with in the desired Radius')
 
-selected_location = st.selectbox('Location', sorted(location_df.columns.to_list()))
+st.header('Find Apartments Near a Landmark')
+# location, radius, search button, results...
+
+selected_location = st.selectbox('Location/Landmark', sorted(location_df.columns.to_list()))
 
 radius = st.number_input('Radius in KMs',min_value=0,step=5)
 
 if st.button('Search'):
     result_ser = location_df[location_df[selected_location] < radius*1000][selected_location].sort_values()
-    
-    for key,value in result_ser.items():
-        st.text(str(key) + " " + str(round(value/1000)) + " " + 'KMs')
+
+    if result_ser.empty:
+        st.warning(f'No properties found within {radius} km of {selected_location}. Try increasing the radius or changing landmark')
+    else:
+        for key,value in result_ser.items():
+            st.text(str(key) + " " + str(round(value/1000)) + " " + 'KMs')
 
 
-st.title('Recommend Appartments')
+# st.title('Recommend Appartments')
+
+st.header('Similar Apartment Recommendations')
+
 selected_appartment = st.selectbox('Select an appartment', sorted(location_df.index.to_list()))
 
 if st.button('Recommend'):
