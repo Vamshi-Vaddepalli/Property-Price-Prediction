@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon="🏠",
 )
 
-track("analysis")
+track("Home.py")
 
 st.title("🏠 Gurgaon Real Estate Analytics Suite")
 
