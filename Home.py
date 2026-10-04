@@ -1,25 +1,17 @@
 import streamlit as st
-import streamlit.components.v1 as components
+from tracking import track
 
 # st.set_page_config(
 #     page_title="Hello",
 #     page_icon="👋",
 # )
 
-
-
-if "gc_counted" not in st.session_state:
-    st.session_state.gc_counted = True
-    components.html("""
-    <script data-goatcounter="https://vamshi-property.goatcounter.com/count"
-            data-goatcounter-settings='{"path":"/property-app","title":"Gurgaon Real Estate App"}'
-            async src="//gc.zgo.at/count.js"></script>
-    """, height=0)
-
 st.set_page_config(
     page_title="Gurgaon Real Estate Suite",
     page_icon="🏠",
 )
+
+track("analysis")
 
 st.title("🏠 Gurgaon Real Estate Analytics Suite")
 

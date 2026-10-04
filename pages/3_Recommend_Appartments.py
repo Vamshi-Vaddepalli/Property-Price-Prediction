@@ -2,8 +2,11 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
+from tracking import track
 
 st.set_page_config(page_title="Reccommend Appartments")
+
+track("Recommend_Appartments.py") 
 
 st.title('Apartment Explorer')
 

@@ -5,8 +5,11 @@ import pickle
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import seaborn as sns
+from tracking import track
 
 st.set_page_config(page_title='Viz-Demo')
+
+track("Analysis_App.py")
 
 st.title('Analytics')
 
