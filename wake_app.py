@@ -5,7 +5,7 @@ then waits for the app to finish loading.
 """
 from playwright.sync_api import sync_playwright
 
-APP_URL = "https://property-price-prediction-gurgaon.streamlit.app/"
+APP_URL = "https://property-price-prediction-gurgaon.streamlit.app/?ref=naukri"
 WAKE_BUTTON_TEXT = "Yes, get this app back up!"
 
 def main():
